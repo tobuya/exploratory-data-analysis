@@ -6,7 +6,7 @@ DataLab is a repository that contain various exploratory data analysis (EDA) pro
 
 1. **US Congress members' stock transaction analysis**
    - This project explores the US Congress members' stock transaction analysis for the years 2020, 2021, 2022, and 2023. The dataset is provided by the [House Stock Watcher](https://housestockwatcher.com/api) and I seek to find patterns, trends, and potential conflict of interest within the dataset.
-   - [US Congress members' stock transaction analysis](./stocks)
+   - [US Congress members' stock transaction analysis](./stocks/stocks.ipynb)
 
 2. **[TO BE UPDATED]**
    - [TO BE UPDATED].
