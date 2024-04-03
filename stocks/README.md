@@ -6,4 +6,4 @@ The analysis is conducted using Python, leveraging the power of Pandas, NumPy, M
 
 To explore the project, simply click [here](./stocks.ipynb) to access the Jupyter Notebook.
 
-**Note:** *The analysis presented in this project is for informational purposes only and doesn't constitute financial or legal advice.*
+**Note:** *The analysis presented in this project is for informational purposes only.*
