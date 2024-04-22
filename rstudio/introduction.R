@@ -1,4 +1,4 @@
-setwd("/home/tobuya/Projects/rstudio/learn")
+setwd("/home/tobuya/Projects/data/DataLab/rstudio")
 library(dplyr)
 library(nycflights13)
 library(knitr)
