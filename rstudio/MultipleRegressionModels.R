@@ -15,11 +15,30 @@ evals_ch6 %>%
   skim()
 evals_ch6 %>%
   get_correlation(score~age)
+
+# Fit the model: one numerical and one categorical explanatory variables
+# a>Interaction model
 ggplot(evals_ch6, aes(x = age, y = score, color = gender)) +
   geom_point() +
   labs(x = "Age", y = "Teaching Score", color = "Gender") +
   geom_smooth(method = "lm", se = FALSE)
 
-# Fit the model: one numerical and one categorical explanatory variables
 score_model_interaction <- lm(score ~ age * gender, data = evals_ch6)
 get_regression_table(score_model_interaction)
+
+interaction_model_regression_points <- get_regression_points(score_model_interaction)
+interaction_model_regression_points
+
+# b>Parallel slopes model
+ggplot(evals_ch6, aes(x = age, y = score, color = gender)) +
+  geom_point() +
+  labs(x = "Age", y = "Teaching Score", color = "Gender") +
+  geom_parallel_slopes(se = FALSE)
+
+score_model_parallel <- lm(score ~ age + gender, data = evals_ch6)
+get_regression_table(score_model_parallel)
+
+parallel_model_regression_points <- get_regression_points(score_model_parallel)
+parallel_model_regression_points
+
+# Fit the model: two numerical explanatory variables
