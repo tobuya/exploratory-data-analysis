@@ -73,7 +73,7 @@ debt_model <- lm(debt ~ credit_limit + income, data = credit_ch6)
 get_regression_table(debt_model)
 get_regression_points(debt_model)
 
-# Model selection using visualizations
+# Model selection using visualizations and R-Square
 glimpse(MA_schools)
 # a>Interaction model
 ggplot(MA_schools, aes(x = perc_disadvan, y = average_sat_math, color = size)) +
