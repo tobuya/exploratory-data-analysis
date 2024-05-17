@@ -58,4 +58,3 @@ bootstrap_dist <- pennies_sample %>%
   calculate(stat = "mean")
 visualize(bootstrap_dist) +
   labs(title = "Bootstrap distribution of the sample mean year")
-  
