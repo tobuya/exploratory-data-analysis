@@ -1,14 +1,30 @@
 library(nycflights13)
-library(ggplot2)
+library(tidyverse)
 library(moderndive)
+library(palmerpenguins)
+library(ggthemes)
 
-#Scatter plots ~ relationship between two numerical variables
+#SCATTER PLOTS ~ relationship between two numerical variables
 ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay)) + geom_point()
 #Dealing with over plotting: Adjust transparency of points or use jitter
 ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay)) + 
   geom_point(alpha = 0.2)
 ggplot(alaska_flights, aes(x = dep_delay, y = arr_delay)) +
   geom_jitter(width = 35, height = 35)
+
+#R4DS Scatter plots
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  geom_smooth(method = "lm") +
+  labs(
+    title = "Body mass and flipper length",
+    subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo penguins",
+    x = "Flipper length (mm)", y = "Body mass (g)",
+    color = "Species", shape = "Species",
+    caption = "Data come from the palmerpenguins package"
+  ) +
+  scale_color_colorblind()
+
 
 #Line graphs - relationship between two numerical variables, x-axis is ordered.
 ggplot(early_january_weather, aes(x = time_hour, y = temp)) + geom_line()
