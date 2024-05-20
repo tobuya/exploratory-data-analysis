@@ -29,6 +29,7 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
 #Line graphs - relationship between two numerical variables, x-axis is ordered.
 ggplot(early_january_weather, aes(x = time_hour, y = temp)) + geom_line()
 
+
 #Histograms - visualize the distribution of a single numerical variable
 ggplot(weather, aes(x = temp)) + geom_histogram(bins = 10, color = "white")
 ggplot(weather, aes(x = temp)) + geom_histogram(binwidth = 15, color = "white")
@@ -36,9 +37,21 @@ ggplot(weather, aes( x = temp)) +
   geom_histogram(binwidth = 10, color = "white") +
   facet_wrap(~month, nrow = 4)
 
+#R4DS Density plots
+ggplot(penguins, aes(x = body_mass_g)) + geom_density()
+ggplot(penguins, aes(x = body_mass_g, color = species)) +
+  geom_density(linewidth = 0.75)
+ggplot(penguins, aes(x = body_mass_g, color = species, fill = species)) +
+  geom_density(alpha = 0.5)
+
+
 #Box plots - visualize the distribution of a numerical variable by a categorical variable
 ggplot(weather, aes(x = factor(month), y = temp)) + geom_boxplot()
 ggplot(weather, aes(x = factor(month), y = temp)) + geom_boxplot() + coord_flip()
+
+#R4DS Box plots
+ggplot(penguins, aes(x = species, y = body_mass_g)) + geom_boxplot()
+
 
 # Bar plots - visualize the distribution of a categorical variable
 fruits <- tibble(
@@ -59,9 +72,24 @@ flights_counted <- tibble(
   count = c(32729, 714, 54635, 48110, 54173, 685, 342, 26397, 32, 58665, 20536, 5116, 12275)
 )
 ggplot(flights_counted, aes(x = carrier, y = count)) + geom_col()
+
 #Two categorical variables
 ggplot(flights, aes(x = carrier, fill = origin)) + geom_bar()
 ggplot(flights, aes(x = carrier, fill = origin)) + 
   geom_bar(position = position_dodge(preserve = "single"))
 ggplot(flights, aes(x = carrier)) + geom_bar() +
   facet_wrap(~origin, ncol = 1)
+
+#R4DS Bar plots
+ggplot(penguins, aes(x = species)) + geom_bar()
+ggplot(penguins, aes(x = fct_infreq(species))) + geom_bar()
+
+ggplot(penguins, aes(x = island, fill = species)) + geom_bar()
+ggplot(penguins, aes(x = island, fill = species)) + geom_bar(position = "fill")
+
+#R4DS Three or more variables
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = island))
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species, shape = species)) +
+  facet_wrap(~island)
